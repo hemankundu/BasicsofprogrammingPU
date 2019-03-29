@@ -26,15 +26,17 @@ public:
 
     friend istream& operator>>(istream& in,  Fraction& fr){
         in>>fr.a>>fr.b;
+        return in;
     }
 
     friend ostream & operator<<(ostream &out, Fraction &fr){
         out<<fr.a<<"/"<<fr.b;
+        return out;
     }
 };
 
 //Takes a vector of Fractions and return additon as Fraction 
-Fraction AddFractions(vector<Fraction> vfr){
+Fraction AddFractions(vector<Fraction> &vfr){
     if(vfr.size()<1){
         return Fraction(0, 0);
     }else if(vfr.size()==1){
@@ -103,6 +105,6 @@ int main(){
             cout<<fr<<" + ";
         }
         Fraction res =  egfr.GetSum();
-        cout<<" = "<<res<<endl;    
+        cout<<" = "<<res<<res<<endl;    
     }
 }
